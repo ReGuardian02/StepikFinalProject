@@ -2,8 +2,13 @@ import time
 from selenium.webdriver.common.by import By
 
 
-def test_addtocart_button_is_visible(browser):
-    browser.get('http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/')
-    time.sleep(5)
-    button = browser.find_element(By.CLASS_NAME, 'btn-add-to-basket')
-    assert button is not None
+link = "http://selenium1py.pythonanywhere.com/"
+
+def go_to_login_page(browser):
+    login_link = browser.find_element(By.CSS_SELECTOR, "#login_link")
+    login_link.click()
+
+
+def test_guest_can_go_to_login_page(browser): 
+   browser.get(link) 
+   go_to_login_page(browser) 

@@ -16,9 +16,9 @@ class BookPage(BasePage):
         add_to_cart_button.click()
     
     def should_be_correct_product_name(self):
-        success_message = self.browser.find_element(*BookPageLocators.SUCCESS_MESSAGE)
+        success_message_name = self.browser.find_element(*BookPageLocators.SUCCESS_MESSAGE_NAME)
         book_name = self.browser.find_element(*BookPageLocators.PRODUCT_NAME).text
-        assert book_name in success_message.text 
+        assert book_name == success_message_name.text 
     
     def should_be_correct_cart_price(self):
         book_price = self.browser.find_element(*BookPageLocators.PRODUCT_PRICE).text.split('&')[1]

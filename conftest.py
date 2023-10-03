@@ -17,6 +17,8 @@ def browser(request):
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+
     yield browser
+
     print("\nQuitting browser..")
     browser.quit()
